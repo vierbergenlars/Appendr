@@ -1,0 +1,22 @@
+{
+    "name": "vierbergenlars/twig-ext-headtitle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lars Vierbergen",
+            "email": "vierbergenlars@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": ">=1.12"
+    },
+    "require-dev":
+    {
+        "vierbergenlars/simpletest": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "vierbergenlars\\Twig\\Extension\\HeadTitle\\": "lib/"
+        }
+    }
+}

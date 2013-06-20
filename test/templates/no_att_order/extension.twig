@@ -1,0 +1,7 @@
+{% extends "no_att_order/base.twig" %}
+{% do headTitle('Ext') %}
+{% do headTitle('Append', 'APPEND') %}
+{% do headTitle('Prepend', 'PREPEND') %}
+{% do headTitle().setSeparator('@') %}
+{% block content %}
+{{ headTitle('Block') }}{% endblock %}
