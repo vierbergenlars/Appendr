@@ -1,10 +1,12 @@
-# Appendr Twig extension
+# Appendr
 
-[![Build Status](https://travis-ci.org/vierbergenlars/twig-ext-appendr.png?branch=master)](https://travis-ci.org/vierbergenlars/twig-ext-appendr)
+[![Build Status](https://travis-ci.org/vierbergenlars/appendr.png?branch=master)](https://travis-ci.org/vierbergenlars/appendr)
+
+Appendr is a small plugin to allow template strings to be changed in child templates.
 
 ## Installation
 
-`$ composer require vierbergenlars/twig-ext-appendr:*`
+`$ composer require vierbergenlars/appendr:*`
 
 Register the extension with your Twig environment
 ```php
@@ -12,7 +14,7 @@ Register the extension with your Twig environment
 
 // ...
 $twig = new Twig_Environment($loader);
-$twig->addFunction(new \Twig_SimpleFunction('headTitle', new \vierbergenlars\Twig\Extension\Appendr));
+$twig->addFunction(new \Twig_SimpleFunction('headTitle', new \vierbergenlars\Appendr));
 // headTitle is just an example name, you can name it anything you want.
 ```
 
@@ -57,7 +59,7 @@ Default options can be passed when registering the Twig function.
 ```php
 <?php
 
-use vierbergenlars\Twig\Extension\Appendr;
+use vierbergenlars\Appendr;
 
 // ...
 

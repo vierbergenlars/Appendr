@@ -1,6 +1,6 @@
 <?php
 
-namespace vierbergenlars\Twig\Extension;
+namespace vierbergenlars;
 
 class Appendr
 {

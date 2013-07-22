@@ -4,7 +4,7 @@ require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/../Appendr.php';
 require __DIR__.'/../vendor/vierbergenlars/simpletest/autorun.php';
 
-use vierbergenlars\Twig\Extension\Appendr;
+use vierbergenlars\Appendr;
 
 class AppendrTest extends UnitTestCase
 {
