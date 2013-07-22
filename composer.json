@@ -1,5 +1,5 @@
 {
-    "name": "vierbergenlars/twig-ext-headtitle",
+    "name": "vierbergenlars/twig-ext-appendr",
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +10,16 @@
     "require": {
         "twig/twig": ">=1.12"
     },
-    "require-dev":
-    {
+    "require-dev": {
         "vierbergenlars/simpletest": "*"
     },
     "autoload": {
         "psr-0": {
-            "vierbergenlars\\Twig\\Extension\\HeadTitle\\": "lib/"
+            "vierbergenlars\\Twig\\Extension\\Appendr": "lib/"
         }
+    },
+    "target-dir": "lib/vierbergenlars/Twig/Extension/",
+    "archive": {
+        "exclude": ["/test"]
     }
 }
