@@ -63,9 +63,13 @@ class Appendr
     public function __toString() {
         $pattern = $this->pattern;
         if($pattern !== null) {
-            $patternized = array_map(function($source) use($pattern){
-                return sprintf($pattern, $source);
-            }, $this->sources);
+            if(is_callable($pattern)) {
+                $patternized = array_map($pattern, $this->sources);
+            } else {
+                $patternized = array_map(function($source) use($pattern){
+                    return sprintf($pattern, $source);
+                }, $this->sources);
+            }
         } else {
             $patternized = $this->sources;
         }

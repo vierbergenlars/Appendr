@@ -40,6 +40,30 @@ class AppendrTest extends UnitTestCase
         $this->assertEqual($appendr->__toString(), '<script src="jquery.min.js"></script><script src="jquery.dropdown.js"></script>');
     }
 
+    function testCallablePattern()
+    {
+        $appendr = new Appendr();
+        $appendr->setPattern(function($source) {
+            return '<script src="'.$source.'"></script>';
+        });
+        $appendr->append('jquery.min.js');
+        $this->assertEqual($appendr->__toString(), '<script src="jquery.min.js"></script>');
+        $appendr->append('jquery.dropdown.js');
+        $this->assertEqual($appendr->__toString(), '<script src="jquery.min.js"></script><script src="jquery.dropdown.js"></script>');
+    }
+
+    function testCallablePatternArray()
+    {
+        $appendr = new Appendr();
+        $appendr->setPattern(function($source) {
+            return $source[0].'+'.$source[1];
+        });
+        $appendr->append(array('a','b'));
+        $this->assertEqual($appendr->__toString(), 'a+b');
+        $appendr->append(array('c','d'));
+        $this->assertEqual($appendr->__toString(), 'a+bc+d');
+    }
+
     function testConstructorArgs()
     {
         $appendr = new Appendr(' - ', '**%s**', Appendr::PREPEND);
