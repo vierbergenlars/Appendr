@@ -1,6 +1,6 @@
 # Appendr
 
-[![Build Status](https://travis-ci.org/vierbergenlars/appendr.png?branch=master)](https://travis-ci.org/vierbergenlars/appendr)
+[![Build Status](https://travis-ci.org/vierbergenlars/Appendr.png?branch=master)](https://travis-ci.org/vierbergenlars/Appendr)
 
 Appendr is a small plugin to allow template strings to be changed in child templates.
 
