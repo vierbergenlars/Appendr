@@ -15,7 +15,7 @@ class Appendr
 
     /**
      * Creates a new Appendr instance
-     * @param string|null $separator Separator between parts.
+     * @param string|callable|null $separator Separator between parts. If it's a callable, the function gets called with the whole array as only parameter.
      * @param string|callable|null $pattern Pattern to apply to each part individually. (If it's a string, {@link sprintf()} is used. If it's callable, the function will be passed to {@link array_map()})
      * @param string $default_attach_order The default attach order {@link Appendr::APPEND}, {@link Appendr::PREPEND} or {@link Appendr::SET}
      */
@@ -105,8 +105,7 @@ class Appendr
         } else {
             $patternized = $this->sources;
         }
-
-        return implode($this->separator, $patternized);
+        return is_callable($this->separator)?call_user_func($this->separator, $patternized):implode($this->separator, $patternized);
     }
 
     /**
@@ -140,8 +139,8 @@ class Appendr
     }
 
     /**
-     * Sets the separator character(s)
-     * @param string $separator
+     * Sets the separator character(s), or callable
+     * @param string|callable $separator If it's a callable, the function gets called with the whole array as only parameter.
      * @return \vierbergenlars\Appendr
      */
     public function setSeparator($separator)
@@ -151,8 +150,8 @@ class Appendr
     }
 
     /**
-     * Gets the separator character(s)
-     * @return string|null
+     * Gets the separator character(s), or callable
+     * @return string|callable|null
      */
     public function getSeparator()
     {

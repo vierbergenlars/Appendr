@@ -17,6 +17,24 @@ class AppendrTest extends UnitTestCase
         $this->assertEqual($appendr->__toString(), 'a ** b');
     }
 
+    function testSeparatorCallable()
+    {
+        $appendr = new Appendr;
+        $appendr->setSeparator(function($sources) {
+            $result = '';
+            for($i=0; $i<count($sources); $i++) {
+                if($i%2 == 0)
+                    $result.=$sources[$i];
+            }
+            return $result;
+        });
+
+        $appendr->append('a');
+        $appendr->append('b');
+        $appendr->append('c');
+        $this->assertEqual($appendr->__toString(), 'ac');
+    }
+
     function testDefaultOrder()
     {
         $appendr = new Appendr();
@@ -62,6 +80,42 @@ class AppendrTest extends UnitTestCase
         $this->assertEqual($appendr->__toString(), 'a+b');
         $appendr->append(array('c','d'));
         $this->assertEqual($appendr->__toString(), 'a+bc+d');
+    }
+
+    function testSeparatorAndPatternCallable()
+    {
+        $appendr = new Appendr();
+        $appendr->setPattern(function($source) {
+            if(isset($source['href'])) {
+                return array(
+                    'data'=>'<a href="'.$source['href'].'">'.$source['text'].'</a>',
+                    'visible'=>$source['visible']
+                );
+            }
+            return array(
+                'data'=>$source['text'],
+                'visible'=>true
+            );
+        });
+        $appendr->setSeparator(function($sources) {
+            $ret = '<ul class="breadcrumb">';
+            for($i=0;$i<count($sources)-1;$i++)
+            {
+                if(!$sources[$i]['visible'])
+                    continue;
+                $ret.='<li>'.$sources[$i]['data'].' <span class="divider">/</span></li>';
+            }
+            $ret.='<li class="active">'.$sources[$i]['data'].'</li>';
+            $ret.='</ul>';
+            return $ret;
+        });
+
+        $appendr->append(array('href'=>'/', 'text'=>'Home', 'visible'=>true));
+        $appendr->append(array('href'=>'/contact', 'text'=>'Contact', 'visible'=>false));
+        $appendr->append(array('href'=>'/lib', 'text'=>'Library', 'visible'=>true));
+        $appendr->append(array('text'=>'Data', 'visible'=>true));
+        $this->assertEqual($appendr->__toString(), '<ul class="breadcrumb"><li><a href="/">Home</a> <span class="divider">/</span></li><li><a href="/lib">Library</a> <span class="divider">/</span></li><li class="active">Data</li></ul>');
+
     }
 
     function testConstructorArgs()
