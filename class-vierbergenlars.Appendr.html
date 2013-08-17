@@ -95,7 +95,7 @@
 		<b>Namespace:</b> <a href="namespace-vierbergenlars.html">vierbergenlars</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-vierbergenlars.Appendr.html#5-181" title="Go to source code">Appendr.php</a><br />
+		<b>Located at</b> <a href="source-class-vierbergenlars.Appendr.html#5-180" title="Go to source code">Appendr.php</a><br />
 	</div>
 
 
@@ -113,7 +113,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#16-27" title="Go to source code">__construct</a>( <span>string|null <var>$separator</var> = <span class="php-keyword1">null</span></span>, <span>string|callable|null <var>$pattern</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$default_attach_order</var> = <code><a href="class-vierbergenlars.Appendr.html#APPEND">vierbergenlars\Appendr::<b>APPEND</b></a></code></span> )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#16-27" title="Go to source code">__construct</a>( <span>string|callable|null <var>$separator</var> = <span class="php-keyword1">null</span></span>, <span>string|callable|null <var>$pattern</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$default_attach_order</var> = <code><a href="class-vierbergenlars.Appendr.html#APPEND">vierbergenlars\Appendr::<b>APPEND</b></a></code></span> )</code>
 
 		<div class="description short">
 			
@@ -130,7 +130,8 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$separator</var></dt>
-					<dd><code>string|null</code><br>$separator Separator between parts.</dd>
+					<dd><code>string|callable|null</code><br>$separator Separator between parts. If it's a callable, the function gets called
+with the whole array as only parameter.</dd>
 					<dt><var>$pattern</var></dt>
 					<dd><code>string|callable|null</code><br>$pattern Pattern to apply to each part individually. (If it's a string, sprintf() is used. If it's callable, the function will be passed to array_map())</dd>
 					<dt><var>$default_attach_order</var></dt>
@@ -334,7 +335,7 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#91-110" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#91-109" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			
@@ -371,7 +372,7 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDefaultAttachOrder">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#112-131" title="Go to source code">setDefaultAttachOrder</a>( <span>string <var>$attach_order</var></span> )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#111-130" title="Go to source code">setDefaultAttachOrder</a>( <span>string <var>$attach_order</var></span> )</code>
 
 		<div class="description short">
 			
@@ -417,7 +418,7 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDefaultAttachOrder">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#133-140" title="Go to source code">getDefaultAttachOrder</a>( )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#132-139" title="Go to source code">getDefaultAttachOrder</a>( )</code>
 
 		<div class="description short">
 			
@@ -454,24 +455,25 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSeparator">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#142-151" title="Go to source code">setSeparator</a>( <span>string <var>$separator</var></span> )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#141-150" title="Go to source code">setSeparator</a>( <span>string|callable <var>$separator</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Sets the separator character(s)</p>
+<p>Sets the separator character(s), or callable</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Sets the separator character(s)</p>
+<p>Sets the separator character(s), or callable</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$separator</var></dt>
-					<dd><code>string</code><br>$separator</dd>
+					<dd><code>string|callable</code><br>$separator If it's a callable, the function gets called with the whole array as
+only parameter.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -489,31 +491,31 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="attributes"><code>
 			 public 
-			string|null
+			string|callable|null
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getSeparator">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#153-160" title="Go to source code">getSeparator</a>( )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#152-159" title="Go to source code">getSeparator</a>( )</code>
 
 		<div class="description short">
 			
-<p>Gets the separator character(s)</p>
+<p>Gets the separator character(s), or callable</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Gets the separator character(s)</p>
+<p>Gets the separator character(s), or callable</p>
 
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string|null</code><br />
+					<code>string|callable|null</code><br />
 				</div>
 
 
@@ -533,7 +535,7 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPattern">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#162-171" title="Go to source code">setPattern</a>( <span>string|callable|null <var>$pattern</var></span> )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#161-170" title="Go to source code">setPattern</a>( <span>string|callable|null <var>$pattern</var></span> )</code>
 
 		<div class="description short">
 			
@@ -575,7 +577,7 @@ string is used). If this variable is empty, nothing will happen</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPattern">#</a>
-		<code><a href="source-class-vierbergenlars.Appendr.html#173-180" title="Go to source code">getPattern</a>( )</code>
+		<code><a href="source-class-vierbergenlars.Appendr.html#172-179" title="Go to source code">getPattern</a>( )</code>
 
 		<div class="description short">
 			
